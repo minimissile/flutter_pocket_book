@@ -1,0 +1,2 @@
+# flutter_pocket_book
+基于flutter开发的全资产记账应用
