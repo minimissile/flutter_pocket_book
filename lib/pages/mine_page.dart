@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_pocket_book/pages/login_page.dart';
 import 'package:flutter_pocket_book/utils/navigator_util.dart';
 
@@ -10,6 +11,10 @@ class MinePage extends StatefulWidget {
 class _MinePageState extends State<MinePage> {
   @override
   Widget build(BuildContext context) {
+    /// 控制操作系统图形界面的特定方面，以及
+    /// 它如何与应用程序交互
+    // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('我的'),
