@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_pocket_book/pages/login_page.dart';
+import 'file:///C:/Users/I7-B/Desktop/flutter_pocket_book/lib/pages/login/login_page.dart';
 import 'package:flutter_pocket_book/utils/navigator_util.dart';
 
 class MinePage extends StatefulWidget {
@@ -26,6 +26,7 @@ class _MinePageState extends State<MinePage> {
             onPressed: () {
               print('退出登录');
               NavigatorUtil.push(context, LoginPage());
+//              Navigator.push(context, route)
             },
             elevation: 0,
             child: Text('退出登录'),
