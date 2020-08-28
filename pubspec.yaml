@@ -49,6 +49,18 @@ flutter:
     - asset/images/
     - asset/images/ic_mine_message.png
     - asset/images/ic_mine_setting.png
+    - asset/images/ic_me_service.png
+    - asset/images/ic_me_vip.png
+    - asset/images/ic_skin_home_bill.png
+    - asset/images/ic_skin_home_bill_pressed.png
+    - asset/images/ic_skin_home_chart.png
+    - asset/images/ic_skin_home_chart_pressed.png
+    - asset/images/ic_skin_home_me.png
+    - asset/images/ic_skin_home_me_pressed.png
+    - asset/images/ic_skin_home_property.png
+    - asset/images/ic_skin_home_property_pressed.png
+    - asset/images/ic_vip_default_avatar.png
+    - asset/images/ic_me_yd_tab_ad.png
 #     - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
