@@ -12,6 +12,16 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('首页'),
       ),
+      body: ListView(
+        children: <Widget>[
+          FlatButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/mine');
+            },
+            child: Text('去我的页面'),
+          )
+        ],
+      ),
     );
   }
 }

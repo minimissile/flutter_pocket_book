@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -48,7 +47,9 @@ class _LoginPageState extends State<LoginPage> {
             RaisedButton(
               color: Colors.blue,
               padding: EdgeInsets.symmetric(vertical: 13.0),
-              onPressed: () {},
+              onPressed: () {
+                print('登录');
+              },
               child: Text(
                 '登录',
                 style: TextStyle(color: Colors.white, fontSize: 16.0),
@@ -66,9 +67,10 @@ class _LoginPageState extends State<LoginPage> {
                     print('去注册');
                     Navigator.pushReplacementNamed(context, '/register');
                   },
-                  child: Text('去注册',style: TextStyle(
-                    color: Colors.blue
-                  ),),
+                  child: Text(
+                    '去注册',
+                    style: TextStyle(color: Colors.blue),
+                  ),
                 )
               ],
             )

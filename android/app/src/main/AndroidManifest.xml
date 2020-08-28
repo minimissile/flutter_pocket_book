@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="flutter_pocket_book"
+        android:label="有钱记账"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

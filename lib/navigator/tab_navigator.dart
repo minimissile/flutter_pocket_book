@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pocket_book/pages/annal_page.dart';
-import 'package:flutter_pocket_book/pages/home_page.dart';
-import 'package:flutter_pocket_book/pages/mine_page.dart';
+import 'package:flutter_pocket_book/pages/bill/bill_page.dart';
+import 'package:flutter_pocket_book/pages/home/home_page.dart';
+import 'package:flutter_pocket_book/pages/mine/mine_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter_pocket_book/pages/report/report_page.dart';
 
 class TabNavigator extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class TabNavigator extends StatefulWidget {
 
 class _TabNavigatorState extends State<TabNavigator> {
   final PageController _controller = PageController(initialPage: 0);
-  int currentIndex = 0;
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,30 +20,38 @@ class _TabNavigatorState extends State<TabNavigator> {
       body: PageView(
         onPageChanged: (index) {
           print(index);
-          currentIndex = index;
+          setState(() {
+            _currentIndex = index;
+          });
         },
         // 滑动超出边界时的动画效果
         // 类ios效果： BouncingScrollPhysics
         // 类安卓效果： AlwaysScrollableScrollPhysics
         // 无效果： NeverScrollableScrollPhysics
-        physics:  AlwaysScrollableScrollPhysics(),
+        physics: AlwaysScrollableScrollPhysics(),
         controller: _controller,
         children: <Widget>[
           HomePage(),
-          AnnalPage(),
+          BillPage(),
+          ReportPage(),
           MinePage(),
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        index: currentIndex,
+        index: _currentIndex,
         backgroundColor: Color(0xFFfafafa),
         items: <Widget>[
-          Icon(Icons.list, size: 30),
-          Icon(Icons.add, size: 30),
+          Icon(Icons.home, size: 30),
+          Icon(Icons.branding_watermark, size: 30),
+          Icon(Icons.insert_chart, size: 30),
           Icon(Icons.account_circle, size: 30),
         ],
         onTap: (index) {
           print(index);
+          _controller.jumpToPage(index);
+          setState(() {
+            _currentIndex = index;
+          });
           //Handle button tap
         },
       ),
