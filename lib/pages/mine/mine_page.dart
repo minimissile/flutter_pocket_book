@@ -29,6 +29,7 @@ class _MinePageState extends State<MinePage> {
                 InkWell(
                   onTap: () {
                     print('点击消息按钮');
+                    Navigator.pushNamed(context, '/message');
                   },
                   borderRadius: BorderRadius.circular(100.0),
                   child: Padding(
@@ -42,6 +43,7 @@ class _MinePageState extends State<MinePage> {
                 InkWell(
                   onTap: () {
                     print('点击设置按钮');
+                    Navigator.pushNamed(context, '/set');
                   },
                   borderRadius: BorderRadius.circular(100.0),
                   child: Padding(
