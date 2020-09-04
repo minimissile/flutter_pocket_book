@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_pocket_book/utils/img_util.dart';
+import 'package:flutter_pocket_book/utils/toast_util.dart';
 
 import 'mine_ad_widget.dart';
 
@@ -17,6 +18,9 @@ class _MinePageState extends State<MinePage> {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('1111'),
+      ),
       body: Column(
         children: <Widget>[
           // 顶部按钮
@@ -43,6 +47,7 @@ class _MinePageState extends State<MinePage> {
                 InkWell(
                   onTap: () {
                     print('点击设置按钮');
+//                     Toast.show('msg');
                     Navigator.pushNamed(context, '/set');
                   },
                   borderRadius: BorderRadius.circular(100.0),

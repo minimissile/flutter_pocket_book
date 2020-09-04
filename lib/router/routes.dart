@@ -1,10 +1,10 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pocket_book/navigator/tab_navigator.dart';
+import 'package:flutter_pocket_book/pages/home/home_page.dart';
+import 'package:flutter_pocket_book/pages/login/login_page.dart';
 import 'package:flutter_pocket_book/pages/message/message_page.dart';
-import 'file:///C:/Users/I7-B/Desktop/flutter_pocket_book/lib/pages/home/home_page.dart';
 import 'package:flutter_pocket_book/pages/mine/mine_page.dart';
-import 'file:///C:/Users/I7-B/Desktop/flutter_pocket_book/lib/pages/login/login_page.dart';
 import 'package:flutter_pocket_book/pages/register/register_page.dart';
 import 'package:flutter_pocket_book/pages/set/set_page.dart';
 
