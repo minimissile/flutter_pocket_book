@@ -63,6 +63,10 @@ flutter:
     - asset/images/ic_skin_home_property_pressed.png
     - asset/images/ic_vip_default_avatar.png
     - asset/images/ic_me_yd_tab_ad.png
+    - asset/images/icon_fuli.png
+    - asset/images/icon_gongju.png
+    - asset/images/icon_kefu.png
+    - asset/images/icon_vip.png
 #     - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

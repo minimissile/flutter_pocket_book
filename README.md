@@ -11,4 +11,4 @@
 
 ## 已实现的效果
 
-<img src="./ui/ui_1.png" style="zoom:10%;" />
+<img src="./ui/ui_1.png" width="220px" />

@@ -5,6 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_pocket_book/router/routes.dart';
 
 void main() {
+
+  // 修改状态栏颜色
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+
   runApp(MyApp());
   // 透明状态栏
   if (Platform.isAndroid) {
