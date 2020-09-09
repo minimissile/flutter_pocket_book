@@ -1,7 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_pocket_book/pages/bill/data.dart';
 import 'package:flutter_pocket_book/utils/img_util.dart';
+import 'package:flutter_pocket_book/widgets/panel_widget.dart';
+
+TextStyle _accountTitleStyle = TextStyle(
+  fontSize: 24.0,
+  color: Colors.black,
+);
 
 class BillPage extends StatefulWidget {
   @override
@@ -19,6 +26,34 @@ class _BillPageState extends State<BillPage> {
 
   bool _isExpanded = false;
 
+  // 账户列表
+  List<dynamic> list;
+
+  @override
+  void initState() {
+    list = [
+      {"type": "信用卡", "name": "招商银行", "asset": 5000},
+      {"type": "信用卡", "name": "农业银行", "asset": 5000},
+      {"type": "投资账户", "name": "天天基金网", "asset": 5000},
+      {"type": "投资账户", "name": "华泰证券", "asset": 5000},
+      {"type": "信用卡", "name": "招商银行", "asset": 5000},
+      {"type": "现金", "name": "现金", "asset": 5000}
+    ];
+    dataDispose();
+    super.initState();
+  }
+
+  // 将账户列表处理为二维数组展示
+  dataDispose<List>() {
+    var nerArr = [];
+
+    list.forEach((item) {
+      print(item);
+    });
+
+//    return list;
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -28,88 +63,99 @@ class _BillPageState extends State<BillPage> {
           // 移除上边距
           removeTop: true,
           context: context,
-          child: ListView(
-            children: <Widget>[
-              Banner(
-                  totalAssets: totalAssets,
-                  totalLiabilities: totalLiabilities,
-                  bannerText: _bannerText),
-              Container(
-                alignment: Alignment.centerLeft,
-                child: Column(
-                  children: <Widget>[
-                    ExpansionPanelList(
-                      children: <ExpansionPanel>[
-                        ExpansionPanel(
-                          headerBuilder: (context, isExpanded) {
-                            return ListTile(
-                              title: Text('我是标题'),
-                            );
-                          },
-                          body: Padding(
-                            padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
-                            child: ListBody(
-                              children: <Widget>[
-                                Card(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8),
-                                    child: Text('我是内容'),
-                                  ),
-                                ),
-                                Card(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8),
-                                    child: Text('我是内容'),
-                                  ),
-                                ),
-                                Card(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8),
-                                    child: Text('我是内容'),
-                                  ),
-                                ),
-                                Card(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8),
-                                    child: Text('我是内容'),
-                                  ),
-                                ),
-                                Card(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(8),
-                                    child: Text('我是内容'),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          isExpanded: _isExpanded,
-                          canTapOnHeader: true,
-                        ),
-                      ],
-                      expansionCallback: (panelIndex, isExpanded) {
-                        setState(() {
-                          _isExpanded = !isExpanded;
-                        });
-                      },
-                      animationDuration: kThemeAnimationDuration,
-                    ),
-                  ],
-                ),
-              ),
-            ],
+          child: Container(
+            color: Color(0xffF6F6F6),
+            child: ListView(
+              children: <Widget>[
+                Banner(
+                    totalAssets: totalAssets,
+                    totalLiabilities: totalLiabilities,
+                    bannerText: _bannerText),
+                PanelWidget(),
+                PanelWidget(),
+                PanelWidget(),
+//                Container(
+//                  alignment: Alignment.centerLeft,
+//                  child: Column(
+//                    children: <Widget>[
+//                      ExpansionPanelList(
+//                        children: <ExpansionPanel>[
+//                          ExpansionPanel(
+//                            headerBuilder: (context, isExpanded) {
+//                              return ListTile(
+//                                title: Text('我是标题'),
+//                              );
+//                            },
+//                            body: Padding(
+//                              padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+//                              child: ListBody(
+//                                children: <Widget>[
+//                                  Card(
+//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+//                                    child: Padding(
+//                                      padding: EdgeInsets.all(8),
+//                                      child: Text('我是内容'),
+//                                    ),
+//                                  ),
+//                                  Card(
+//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+//                                    child: Padding(
+//                                      padding: EdgeInsets.all(8),
+//                                      child: Text('我是内容'),
+//                                    ),
+//                                  ),
+//                                  Card(
+//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+//                                    child: Padding(
+//                                      padding: EdgeInsets.all(8),
+//                                      child: Text('我是内容'),
+//                                    ),
+//                                  ),
+//                                  Card(
+//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+//                                    child: Padding(
+//                                      padding: EdgeInsets.all(8),
+//                                      child: Text('我是内容'),
+//                                    ),
+//                                  ),
+//                                  Card(
+//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+//                                    child: Padding(
+//                                      padding: EdgeInsets.all(8),
+//                                      child: Text('我是内容'),
+//                                    ),
+//                                  ),
+//                                ],
+//                              ),
+//                            ),
+//                            isExpanded: _isExpanded,
+//                            canTapOnHeader: true,
+//                          ),
+//                        ],
+//                        expansionCallback: (panelIndex, isExpanded) {
+//                          setState(() {
+//                            _isExpanded = !isExpanded;
+//                          });
+//                        },
+//                        animationDuration: kThemeAnimationDuration,
+//                      ),
+//                    ],
+//                  ),
+//                ),
+                RaisedButton(
+                  onPressed: () {
+//                    print(dataDispose(list));
+                  },
+                  child: Text('打印数据'),
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
-
 // banner
 class Banner extends StatelessWidget {
   const Banner({
