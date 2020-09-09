@@ -30,6 +30,7 @@ dependencies:
   fluro: ^1.6.3                     # 路由框架
   fluttertoast: ^7.0.4              # 吐司
   dio: ^3.0.10                      # http请求
+  path_provider: ^1.6.14            # 查询文件系统常用位置
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,7 @@ flutter:
     - asset/images/icon_gongju.png
     - asset/images/icon_kefu.png
     - asset/images/icon_vip.png
+    - asset/images/account_banner.jpg
 #     - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

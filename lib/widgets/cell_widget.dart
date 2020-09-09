@@ -46,7 +46,7 @@ class CellWidget extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                width: 0.5,
+                width: 0.4,
                 color: Colors.black12,
               ),
             ),
