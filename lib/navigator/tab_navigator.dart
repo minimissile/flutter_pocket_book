@@ -17,6 +17,7 @@ class _TabNavigatorState extends State<TabNavigator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+//      floatingActionButton: ,
       body: PageView(
         onPageChanged: (index) {
           print(index);

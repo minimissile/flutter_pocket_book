@@ -19,6 +19,13 @@ class _HomePageState extends State<HomePage> {
               Navigator.pushNamed(context, '/mine');
             },
             child: Text('去我的页面'),
+          ),
+
+          RaisedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/keepAccount');
+            },
+            child: Text('记一笔'),
           )
         ],
       ),

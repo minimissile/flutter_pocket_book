@@ -31,6 +31,7 @@ dependencies:
   fluttertoast: ^7.0.4              # 吐司
   dio: ^3.0.10                      # http请求
   path_provider: ^1.6.14            # 查询文件系统常用位置
+  fl_chart: ^0.11.1                 # 图表库
 
 dev_dependencies:
   flutter_test:
