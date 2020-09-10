@@ -26,6 +26,9 @@ class _BillPageState extends State<BillPage> {
 
   bool _isExpanded = false;
 
+  // 是否可见
+  bool _isVisible = true;
+
   // 账户列表
   List<dynamic> list;
 
@@ -48,7 +51,7 @@ class _BillPageState extends State<BillPage> {
     var nerArr = [];
 
     list.forEach((item) {
-      print(item);
+//      print(item);
     });
 
 //    return list;
@@ -65,88 +68,27 @@ class _BillPageState extends State<BillPage> {
           context: context,
           child: Container(
             color: Color(0xffF6F6F6),
-            child: ListView(
+            child: Column(
               children: <Widget>[
                 Banner(
-                    totalAssets: totalAssets,
-                    totalLiabilities: totalLiabilities,
-                    bannerText: _bannerText),
-                PanelWidget(),
-                PanelWidget(),
-                PanelWidget(),
-//                Container(
-//                  alignment: Alignment.centerLeft,
-//                  child: Column(
-//                    children: <Widget>[
-//                      ExpansionPanelList(
-//                        children: <ExpansionPanel>[
-//                          ExpansionPanel(
-//                            headerBuilder: (context, isExpanded) {
-//                              return ListTile(
-//                                title: Text('我是标题'),
-//                              );
-//                            },
-//                            body: Padding(
-//                              padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
-//                              child: ListBody(
-//                                children: <Widget>[
-//                                  Card(
-//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-//                                    child: Padding(
-//                                      padding: EdgeInsets.all(8),
-//                                      child: Text('我是内容'),
-//                                    ),
-//                                  ),
-//                                  Card(
-//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-//                                    child: Padding(
-//                                      padding: EdgeInsets.all(8),
-//                                      child: Text('我是内容'),
-//                                    ),
-//                                  ),
-//                                  Card(
-//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-//                                    child: Padding(
-//                                      padding: EdgeInsets.all(8),
-//                                      child: Text('我是内容'),
-//                                    ),
-//                                  ),
-//                                  Card(
-//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-//                                    child: Padding(
-//                                      padding: EdgeInsets.all(8),
-//                                      child: Text('我是内容'),
-//                                    ),
-//                                  ),
-//                                  Card(
-//                                    margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
-//                                    child: Padding(
-//                                      padding: EdgeInsets.all(8),
-//                                      child: Text('我是内容'),
-//                                    ),
-//                                  ),
-//                                ],
-//                              ),
-//                            ),
-//                            isExpanded: _isExpanded,
-//                            canTapOnHeader: true,
-//                          ),
-//                        ],
-//                        expansionCallback: (panelIndex, isExpanded) {
-//                          setState(() {
-//                            _isExpanded = !isExpanded;
-//                          });
-//                        },
-//                        animationDuration: kThemeAnimationDuration,
-//                      ),
-//                    ],
-//                  ),
-//                ),
-                RaisedButton(
-                  onPressed: () {
-//                    print(dataDispose(list));
+                  isVisible: _isVisible,
+                  totalAssets: totalAssets,
+                  totalLiabilities: totalLiabilities,
+                  bannerText: _bannerText,
+                  onChange: () {
+                    setState(() {
+                      _isVisible = !_isVisible;
+                    });
                   },
-                  child: Text('打印数据'),
+                ),
+                Expanded(
+                  child: ListView(
+                   children: <Widget>[
+                     PanelWidget(),
+                     PanelWidget(),
+                     PanelWidget(),
+                   ],
+                  ),
                 )
               ],
             ),
@@ -156,25 +98,35 @@ class _BillPageState extends State<BillPage> {
     );
   }
 }
+
 // banner
 class Banner extends StatelessWidget {
   const Banner({
     Key key,
     @required this.totalAssets,
+    @required this.isVisible,
     @required this.totalLiabilities,
     @required TextStyle bannerText,
+    this.onChange,
   })  : _bannerText = bannerText,
         super(key: key);
 
   final num totalAssets;
+  final bool isVisible;
   final num totalLiabilities;
   final TextStyle _bannerText;
+  final Function onChange;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20.0),
-      height: 180.0,
+      padding: EdgeInsets.only(
+          top: MediaQuery.of(context).padding.top,
+          bottom: 20.0,
+          left: 20.0,
+          right: 5.0),
+//      padding: EdgeInsets.all(20.0),
+      height: 172.0,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
@@ -184,6 +136,35 @@ class Banner extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              IconButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  if (onChange != null) {
+                    onChange();
+                  }
+                },
+                icon: Icon(
+                  isVisible ? Icons.visibility_off : Icons.visibility,
+                  size: 20.0,
+                  color: Colors.white,
+                ),
+              ),
+              IconButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  Navigator.pushNamed(context, 'accountSelect');
+                },
+                icon: Icon(
+                  Icons.add,
+                  size: 25.0,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
           Text(
             '净资产',
             style: TextStyle(color: Colors.white, fontSize: 14.0),
@@ -193,13 +174,13 @@ class Banner extends StatelessWidget {
             child: RichText(
               text: TextSpan(
                 text:
-                    ((totalAssets - totalLiabilities).toInt() ?? 0).toString(),
+                    isVisible?((totalAssets - totalLiabilities).toInt() ?? 0).toString(): '*****',
                 style: TextStyle(
                   fontSize: 36.0,
                 ),
                 children: [
-                  TextSpan(text: '.', style: TextStyle(fontSize: 20.0)),
-                  TextSpan(
+                  if(isVisible==true)TextSpan(text: '.', style: TextStyle(fontSize: 20.0)),
+                  if(isVisible==true)TextSpan(
                     text: (int.tryParse((totalAssets - totalLiabilities)
                             .toStringAsFixed(2)
                             .split('.')[1]))
@@ -221,7 +202,7 @@ class Banner extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 5.0),
                 child: Text(
-                  (totalAssets.toInt()).toStringAsFixed(2),
+                  isVisible?(totalAssets.toInt()).toStringAsFixed(2): '*****',
                   style: _bannerText,
                 ),
               ),
@@ -238,7 +219,7 @@ class Banner extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 5.0),
                 child: Text(
-                  (totalLiabilities.toInt()).toStringAsFixed(2),
+                  isVisible?(totalLiabilities.toInt()).toStringAsFixed(2): '*****',
                   style: _bannerText,
                 ),
               ),

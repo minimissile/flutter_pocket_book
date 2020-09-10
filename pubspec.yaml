@@ -70,6 +70,7 @@ flutter:
     - asset/images/icon_kefu.png
     - asset/images/icon_vip.png
     - asset/images/account_banner.jpg
+    - asset/images/icon_yusuan.png
 #     - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

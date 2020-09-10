@@ -145,6 +145,19 @@ class _MinePageState extends State<MinePage> {
             ),
             CellWidget(
               onTap: () {
+                Toast.show('我的客服');
+              },
+              title: '预算中心',
+              value: '收支管理',
+              icon: Image.asset(
+                Img.getAssetsImg('icon_yusuan.png'),
+                fit: BoxFit.cover,
+                width: 18.0,
+              ),
+            ),
+
+            CellWidget(
+              onTap: () {
                 Toast.show('实用工具');
               },
               title: '实用工具',

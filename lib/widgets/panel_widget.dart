@@ -8,7 +8,7 @@ class PanelWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextStyle _accountTitleStyle = TextStyle(
-      fontSize: 14.0,
+      fontSize: 12.0,
       color: Colors.black45,
     );
 
@@ -27,7 +27,7 @@ class PanelWidget extends StatelessWidget {
                   '网络账户 （2）',
                   style: _accountTitleStyle,
                 ),
-                Text(11111.toString(), style: _accountTitleStyle),
+                Text(11111.toStringAsFixed(2), style: _accountTitleStyle),
               ],
             ),
           ),
@@ -35,7 +35,7 @@ class PanelWidget extends StatelessWidget {
             children: <Widget>[
               rowItem(),
               rowItem(),
-              rowItem(),
+              rowItem(showBorder: false),
             ],
           )
         ],
@@ -43,14 +43,15 @@ class PanelWidget extends StatelessWidget {
     );
   }
 
-  Container rowItem() {
+  Container rowItem({bool showBorder = true}) {
+    print(showBorder);
     return Container(
-      height: 60.0,
+      height: 56.0,
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            width: 0.4,
-            color: Colors.black12,
+            width: (showBorder == true) ? 0.4 : 0,
+            color: (showBorder == true) ? Colors.black12 : Colors.transparent,
           ),
         ),
       ),
@@ -59,11 +60,20 @@ class PanelWidget extends StatelessWidget {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(Icons.account_balance_wallet),
+              Icon(
+                Icons.account_balance_wallet,
+                size: 20.0,
+              ),
+              SizedBox(
+                width: 6.0,
+              ),
               Text('微信钱包'),
             ],
           ),
-          Text(500.toString())
+          Text(
+            500.toStringAsFixed(2),
+            style: TextStyle(fontSize: 16.0),
+          )
         ],
       ),
     );

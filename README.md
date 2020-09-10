@@ -11,4 +11,5 @@
 
 ## 已实现的效果
 
-<img src="./ui/ui_1.png" width="278px" />
+<img src="./ui/ui_1.png" width="281px" />
+<img src="./ui/ui_2.png" width="281px" />
