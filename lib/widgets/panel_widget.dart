@@ -15,7 +15,7 @@ class PanelWidget extends StatelessWidget {
     return Container(
       color: Colors.white,
       padding: EdgeInsets.symmetric(horizontal: 10.0),
-      margin: EdgeInsets.only(bottom: 10.0),
+      margin: EdgeInsets.only(bottom: 8.0),
       child: Column(
         children: <Widget>[
           Container(
@@ -50,7 +50,7 @@ class PanelWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            width: (showBorder == true) ? 0.4 : 0,
+            width: (showBorder == true) ? 0.33 : 0,
             color: (showBorder == true) ? Colors.black12 : Colors.transparent,
           ),
         ),
