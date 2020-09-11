@@ -65,87 +65,92 @@ class _MinePageState extends State<MinePage> {
               onTap: () {
                 Navigator.pushNamed(context, '/login');
               },
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: 20.0),
-                    child: Image.asset(
-                      Img.getAssetsImg("ic_vip_default_avatar.png"),
-                      height: 65.0,
-                      width: 65.0,
+              child: Container(
+                padding: EdgeInsets.only(bottom: 15.0),
+                child: Row(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: Image.asset(
+                        Img.getAssetsImg("ic_vip_default_avatar.png"),
+                        height: 65.0,
+                        width: 65.0,
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 15.0),
-                    height: 58.0,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Text(
-                          "立即登陆",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.w700,
+                    Container(
+                      margin: EdgeInsets.only(left: 15.0),
+//                    padding: EdgeInsets.only(bottom: 15.0),
+                      height: 58.0,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Text(
+                            "立即登陆",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "登陆后，将会拥有更好的使用体验",
-                          style: TextStyle(
-                            fontSize: 13.0,
-                            color: Colors.grey,
+                          Text(
+                            "登陆后，将会拥有更好的使用体验",
+                            style: TextStyle(
+                              fontSize: 13.0,
+                              color: Colors.grey,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-            MineAd(),
+//            MineAd(),
             Container(
               height: 10.0,
               color: Color.fromARGB(255, 245, 245, 245),
             ),
+//            CellWidget(
+//              onTap: () {
+//                Toast.show('开通VIP');
+//              },
+//              title: '开通VIP',
+//              value: '支持导出账单，专属皮肤',
+//              icon: Image.asset(
+//                Img.getAssetsImg('icon_vip.png'),
+//                fit: BoxFit.cover,
+//                width: 18.0,
+//              ),
+//            ),
+//            CellWidget(
+//              onTap: () {
+//                Toast.show('我的福利');
+//              },
+//              title: '我的福利',
+//              value: '热门活动',
+//              icon: Image.asset(
+//                Img.getAssetsImg('icon_fuli.png'),
+//                fit: BoxFit.cover,
+//                width: 18.0,
+//              ),
+//            ),
+//            CellWidget(
+//              onTap: () {
+//                Toast.show('我的客服');
+//              },
+//              title: '我的客服',
+//              value: '联系客服',
+//              icon: Image.asset(
+//                Img.getAssetsImg('icon_kefu.png'),
+//                fit: BoxFit.cover,
+//                width: 18.0,
+//              ),
+//            ),
             CellWidget(
               onTap: () {
-                Toast.show('开通VIP');
-              },
-              title: '开通VIP',
-              value: '支持导出账单，专属皮肤',
-              icon: Image.asset(
-                Img.getAssetsImg('icon_vip.png'),
-                fit: BoxFit.cover,
-                width: 18.0,
-              ),
-            ),
-            CellWidget(
-              onTap: () {
-                Toast.show('我的福利');
-              },
-              title: '我的福利',
-              value: '热门活动',
-              icon: Image.asset(
-                Img.getAssetsImg('icon_fuli.png'),
-                fit: BoxFit.cover,
-                width: 18.0,
-              ),
-            ),
-            CellWidget(
-              onTap: () {
-                Toast.show('我的客服');
-              },
-              title: '我的客服',
-              value: '联系客服',
-              icon: Image.asset(
-                Img.getAssetsImg('icon_kefu.png'),
-                fit: BoxFit.cover,
-                width: 18.0,
-              ),
-            ),
-            CellWidget(
-              onTap: () {
-                Toast.show('我的客服');
+//                Toast.show('我的客服');
+                Navigator.pushNamed(context, '/budget');
               },
               title: '预算中心',
               value: '收支管理',
@@ -156,18 +161,18 @@ class _MinePageState extends State<MinePage> {
               ),
             ),
 
-            CellWidget(
-              onTap: () {
-                Toast.show('实用工具');
-              },
-              title: '实用工具',
-              value: '房贷计算器',
-              icon: Image.asset(
-                Img.getAssetsImg('icon_gongju.png'),
-                fit: BoxFit.cover,
-                width: 18.0,
-              ),
-            ),
+//            CellWidget(
+//              onTap: () {
+//                Toast.show('实用工具');
+//              },
+//              title: '实用工具',
+//              value: '房贷计算器',
+//              icon: Image.asset(
+//                Img.getAssetsImg('icon_gongju.png'),
+//                fit: BoxFit.cover,
+//                width: 18.0,
+//              ),
+//            ),
           ],
         ),
       ),

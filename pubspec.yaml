@@ -33,6 +33,7 @@ dependencies:
   path_provider: ^1.6.14            # 查询文件系统常用位置
   fl_chart: ^0.11.1                 # 图表库
   persistent_bottom_nav_bar: ^2.0.5 # tabBar
+  percent_indicator: ^2.1.6         # 进度条
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,7 @@ flutter:
     - asset/images/icon_vip.png
     - asset/images/account_banner.jpg
     - asset/images/icon_yusuan.png
+    - asset/images/empty.png
 #     - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

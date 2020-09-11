@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pocket_book/navigator/tab_navigator.dart';
 import 'package:flutter_pocket_book/pages/account_select/account_select_page.dart';
 import 'package:flutter_pocket_book/pages/balance_and_payments/pages.balance_and_payments_page.dart';
+import 'package:flutter_pocket_book/pages/budget/budget_page.dart';
 import 'package:flutter_pocket_book/pages/home/home_page.dart';
 import 'package:flutter_pocket_book/pages/keep_account/keep_account_page.dart';
 import 'package:flutter_pocket_book/pages/login/login_page.dart';
@@ -43,7 +44,16 @@ class Routes {
   // 记账
   static String keepAccount = '/keepAccount';
 
+  // 预算中心
+  static String budget = '/budget';
+
   // 定义路由处理函数
+
+  static Handler _budgetHandler =
+      Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+    return BudgetPage();
+  });
+
   static Handler _navigatorHandler =
       Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
     return TabNavigator();
@@ -94,7 +104,7 @@ class Routes {
     return BalanceAndPaymentPage();
   });
 
-  static Handler _keepAccountPageHandler =
+  static Handler _keepAccountHandler =
       Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
     return KeepAccountPage();
   });
@@ -110,6 +120,7 @@ class Routes {
     router.define(message, handler: _messageHandler);
     router.define(test, handler: _testHandler);
     router.define(accountSelect, handler: _accountSelectHandler);
-    router.define(keepAccount, handler: _keepAccountPageHandler);
+    router.define(keepAccount, handler: _keepAccountHandler);
+    router.define(budget, handler: _budgetHandler);
   }
 }
