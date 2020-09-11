@@ -34,6 +34,8 @@ dependencies:
   fl_chart: ^0.11.1                 # 图表库
   persistent_bottom_nav_bar: ^2.0.5 # tabBar
   percent_indicator: ^2.1.6         # 进度条
+  timeline_tile: ^0.1.2             # 时间线
+  google_fonts: ^1.1.0              # 谷歌字体库
 
 dev_dependencies:
   flutter_test:
