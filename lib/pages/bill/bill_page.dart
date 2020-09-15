@@ -1,14 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_pocket_book/pages/bill/data.dart';
-import 'package:flutter_pocket_book/utils/img_util.dart';
 import 'package:flutter_pocket_book/widgets/panel_widget.dart';
-
-TextStyle _accountTitleStyle = TextStyle(
-  fontSize: 24.0,
-  color: Colors.black,
-);
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class BillPage extends StatefulWidget {
   @override
@@ -34,27 +28,19 @@ class _BillPageState extends State<BillPage> {
 
   @override
   void initState() {
-    list = [
-      {"type": "信用卡", "name": "招商银行", "asset": 5000},
-      {"type": "信用卡", "name": "农业银行", "asset": 5000},
-      {"type": "投资账户", "name": "天天基金网", "asset": 5000},
-      {"type": "投资账户", "name": "华泰证券", "asset": 5000},
-      {"type": "信用卡", "name": "招商银行", "asset": 5000},
-      {"type": "现金", "name": "现金", "asset": 5000}
-    ];
-    dataDispose();
     super.initState();
   }
 
-  // 将账户列表处理为二维数组展示
-  dataDispose<List>() {
-    var nerArr = [];
+  // 定义下拉加载控制器
+  RefreshController _refreshController =
+      RefreshController(initialRefresh: false);
 
-    list.forEach((item) {
-//      print(item);
-    });
-
-//    return list;
+  // 下拉刷新
+  void _onRefresh() async {
+    // monitor network fetch
+    await Future.delayed(Duration(milliseconds: 500));
+    // if failed,use refreshFailed()
+    _refreshController.refreshCompleted();
   }
 
   @override
@@ -82,12 +68,22 @@ class _BillPageState extends State<BillPage> {
                   },
                 ),
                 Expanded(
-                  child: ListView(
-                   children: <Widget>[
-                     PanelWidget(),
-                     PanelWidget(),
-                     PanelWidget(),
-                   ],
+                  child: SmartRefresher(
+                    enablePullDown: true,
+                    enablePullUp: false,
+                    header: WaterDropMaterialHeader(
+                      color: Colors.white,
+                      backgroundColor: Color(0xffFF5267),
+                    ),
+                    controller: _refreshController,
+                    onRefresh: _onRefresh,
+                    child: ListView(
+                      children: <Widget>[
+                        PanelWidget(),
+                        PanelWidget(),
+                        PanelWidget(),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -173,22 +169,25 @@ class Banner extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8.0),
             child: RichText(
               text: TextSpan(
-                text:
-                    isVisible?((totalAssets - totalLiabilities).toInt() ?? 0).toString(): '*****',
+                text: isVisible
+                    ? ((totalAssets - totalLiabilities).toInt() ?? 0).toString()
+                    : '*****',
                 style: TextStyle(
                   fontSize: 36.0,
                 ),
                 children: [
-                  if(isVisible==true)TextSpan(text: '.', style: TextStyle(fontSize: 20.0)),
-                  if(isVisible==true)TextSpan(
-                    text: (int.tryParse((totalAssets - totalLiabilities)
-                            .toStringAsFixed(2)
-                            .split('.')[1]))
-                        .toString(),
-                    style: TextStyle(
-                      fontSize: 20.0,
+                  if (isVisible == true)
+                    TextSpan(text: '.', style: TextStyle(fontSize: 20.0)),
+                  if (isVisible == true)
+                    TextSpan(
+                      text: (int.tryParse((totalAssets - totalLiabilities)
+                              .toStringAsFixed(2)
+                              .split('.')[1]))
+                          .toString(),
+                      style: TextStyle(
+                        fontSize: 20.0,
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
@@ -202,7 +201,9 @@ class Banner extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 5.0),
                 child: Text(
-                  isVisible?(totalAssets.toInt()).toStringAsFixed(2): '*****',
+                  isVisible
+                      ? (totalAssets.toInt()).toStringAsFixed(2)
+                      : '*****',
                   style: _bannerText,
                 ),
               ),
@@ -219,7 +220,9 @@ class Banner extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 5.0),
                 child: Text(
-                  isVisible?(totalLiabilities.toInt()).toStringAsFixed(2): '*****',
+                  isVisible
+                      ? (totalLiabilities.toInt()).toStringAsFixed(2)
+                      : '*****',
                   style: _bannerText,
                 ),
               ),

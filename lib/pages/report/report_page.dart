@@ -56,9 +56,9 @@ class ReportPageState extends State<ReportPage> {
       child: Column(
         children: <Widget>[
           Container(
-            height: 285,
+            height: 345,
             padding: const EdgeInsets.only(
-                bottom: 0, top: 15.0, left: 10.0, right: 10.0),
+                bottom: 10, top: 15.0, left: 10.0, right: 10.0),
             color: const Color(0xff2c4260),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

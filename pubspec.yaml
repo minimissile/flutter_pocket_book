@@ -36,6 +36,9 @@ dependencies:
   percent_indicator: ^2.1.6         # 进度条
   timeline_tile: ^0.1.2             # 时间线
   google_fonts: ^1.1.0              # 谷歌字体库
+  photo_view: ^0.10.2               # 图片预览
+  pull_to_refresh: ^1.6.0           # 下拉刷新
+  flutter_swiper: ^1.1.6            # 轮播图
 
 dev_dependencies:
   flutter_test:
@@ -76,7 +79,8 @@ flutter:
     - asset/images/account_banner.jpg
     - asset/images/icon_yusuan.png
     - asset/images/empty.png
-#     - images/a_dot_ham.jpeg
+    - asset/images/icon_biaoqian.png
+    - asset/images/icon_jtcy.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -160,6 +160,35 @@ class _MinePageState extends State<MinePage> {
                 width: 18.0,
               ),
             ),
+            CellWidget(
+              onTap: () {
+//                Toast.show('我的客服');
+                Navigator.pushNamed(context, '/budget');
+              },
+              title: '标签管理',
+              value: '分类统计',
+              icon: Image.asset(
+                Img.getAssetsImg('icon_biaoqian.png'),
+                fit: BoxFit.cover,
+                width: 16.0,
+                height: 16.0,
+              ),
+            ),
+
+            CellWidget(
+              onTap: () {
+//                Toast.show('我的客服');
+                Navigator.pushNamed(context, '/budget');
+              },
+              title: '家庭成员',
+              value: '全家能用',
+              icon: Image.asset(
+                Img.getAssetsImg('icon_jtcy.png'),
+                fit: BoxFit.cover,
+                width: 16.0,
+                height: 16.0,
+              ),
+            ),
 
 //            CellWidget(
 //              onTap: () {

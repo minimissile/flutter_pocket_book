@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pocket_book/utils/img_util.dart';
+import 'package:photo_view/photo_view.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 class HomePage extends StatefulWidget {
@@ -95,7 +96,18 @@ class _HomePageState extends State<HomePage> {
               remark,
               style: TextStyle(fontSize: 12.0, color: Colors.black45),
             ),
-          if(img != null) Image.asset(Img.getAssetsImg(img),width: 50.0,height: 50.0,fit: BoxFit.cover,)
+
+//          if(img != null) Container(
+//            child: PhotoView(
+//              imageProvider: AssetImage(Img.getAssetsImg(img)),
+//            ),
+//          )
+
+          if(img != null) GestureDetector(onTap: (){
+            PhotoView(
+              imageProvider: AssetImage(Img.getAssetsImg(img)),
+            );
+          }, child: Image.asset(Img.getAssetsImg(img),width: 50.0,height: 50.0,fit: BoxFit.cover,))
         ],
       ),
     );

@@ -12,3 +12,13 @@
 ## 已实现的效果
 
 <img src="./ui/ui_01.jpg"/>
+
+## 使用到的第三方库
+
+| 库                         | 功能             |
+| -------------------------  | --------------- |
+| [fluro](https://pub.flutter-io.cn/packages/fluro)                           | **路由管理**     |
+| [fluttertoast](https://pub.flutter-io.cn/packages/fluttertoast)             | **吐司**        |
+| [percent_indicator](https://pub.flutter-io.cn/packages/percent_indicator)   | **进度条**       |
+| [pull_to_refresh](https://pub.flutter-io.cn/packages/pull_to_refresh)       | **下拉刷新**     |
+| [sqflite](https://pub.flutter-io.cn/packages/sqflite)                       | **本地数据库**   |
