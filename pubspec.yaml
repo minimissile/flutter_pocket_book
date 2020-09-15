@@ -39,6 +39,7 @@ dependencies:
   photo_view: ^0.10.2               # 图片预览
   pull_to_refresh: ^1.6.0           # 下拉刷新
   flutter_swiper: ^1.1.6            # 轮播图
+  share: ^0.6.5                     # 分享
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +82,9 @@ flutter:
     - asset/images/empty.png
     - asset/images/icon_biaoqian.png
     - asset/images/icon_jtcy.png
+    - asset/images/icon_aixin.png
+    - asset/images/logo.png
+    - asset/images/zfbskm.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

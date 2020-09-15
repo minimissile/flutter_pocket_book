@@ -107,10 +107,7 @@ class _MinePageState extends State<MinePage> {
               ),
             ),
 //            MineAd(),
-            Container(
-              height: 10.0,
-              color: Color.fromARGB(255, 245, 245, 245),
-            ),
+            block(),
 //            CellWidget(
 //              onTap: () {
 //                Toast.show('开通VIP');
@@ -174,7 +171,6 @@ class _MinePageState extends State<MinePage> {
                 height: 16.0,
               ),
             ),
-
             CellWidget(
               onTap: () {
 //                Toast.show('我的客服');
@@ -189,6 +185,23 @@ class _MinePageState extends State<MinePage> {
                 height: 16.0,
               ),
             ),
+            block(),
+            CellWidget(
+              onTap: () {
+//                Toast.show('我的客服');
+                Navigator.pushNamed(context, '/encourage');
+              },
+              title: '爱的鼓励',
+              value: '',
+              icon: Image.asset(
+                Img.getAssetsImg('icon_aixin.png'),
+                fit: BoxFit.cover,
+                width: 16.0,
+                height: 16.0,
+              ),
+            ),
+
+
 
 //            CellWidget(
 //              onTap: () {
@@ -206,5 +219,12 @@ class _MinePageState extends State<MinePage> {
         ),
       ),
     );
+  }
+
+  Container block() {
+    return Container(
+            height: 10.0,
+            color: Color.fromARGB(255, 245, 245, 245),
+          );
   }
 }

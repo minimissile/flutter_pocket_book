@@ -4,6 +4,7 @@ import 'package:flutter_pocket_book/navigator/tab_navigator.dart';
 import 'package:flutter_pocket_book/pages/account_select/account_select_page.dart';
 import 'package:flutter_pocket_book/pages/balance_and_payments/pages.balance_and_payments_page.dart';
 import 'package:flutter_pocket_book/pages/budget/budget_page.dart';
+import 'package:flutter_pocket_book/pages/encourage/encourage_page.dart';
 import 'package:flutter_pocket_book/pages/home/home_page.dart';
 import 'package:flutter_pocket_book/pages/keep_account/keep_account_page.dart';
 import 'package:flutter_pocket_book/pages/login/login_page.dart';
@@ -46,6 +47,8 @@ class Routes {
 
   // 预算中心
   static String budget = '/budget';
+  // 爱的鼓励
+  static String encourage = '/encourage';
 
   // 定义路由处理函数
 
@@ -109,6 +112,11 @@ class Routes {
     return KeepAccountPage();
   });
 
+  static Handler _encouragePageHandler =
+  Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+    return EncouragePage();
+  });
+
   // 3. 编写函数 configureRoutes 关联路由名称和处理函数
   static void configureRoutes(Router router) {
     router.define(navigator, handler: _navigatorHandler);
@@ -122,5 +130,6 @@ class Routes {
     router.define(accountSelect, handler: _accountSelectHandler);
     router.define(keepAccount, handler: _keepAccountHandler);
     router.define(budget, handler: _budgetHandler);
+    router.define(encourage, handler: _encouragePageHandler);
   }
 }
